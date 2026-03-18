@@ -1,5 +1,4 @@
-@Service
-public class CarteiraService package org.example.atividade_biblioteca.service;
+package org.example.atividade_biblioteca.service;
 
 import org.example.atividade_biblioteca.dto.CarteiraRequest;
 import org.example.atividade_biblioteca.dto.CarteiraResponse;

@@ -1,4 +1,4 @@
 package org.example.atividade_biblioteca.repositories;
 
-public class EmprestimoRepository {
+public interface EmprestimoRepository {
 }

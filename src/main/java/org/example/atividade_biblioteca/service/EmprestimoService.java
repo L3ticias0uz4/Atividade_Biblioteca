@@ -9,3 +9,6 @@ public Emprestimo criar(Long usuarioId, EmprestimoRequest request){
 
     return emprestimoRepository.save(e);
 }
+
+void main() {
+}
