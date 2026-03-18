@@ -1,3 +1,12 @@
+package org.example.atividade_biblioteca.controller;
+
+import org.example.atividade_biblioteca.dto.EmprestimoRequest;
+import org.example.atividade_biblioteca.entities.Emprestimo;
+import org.example.atividade_biblioteca.service.EmprestimoService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
 @RestController
 @RequestMapping("/emprestimos")
 public class EmprestimoController {

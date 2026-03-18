@@ -18,7 +18,6 @@ public class CarteiraController {
     @PostMapping("/{usuarioId}")
     public CarteiraResponse criar(@PathVariable Long usuarioId,
                                   @RequestBody CarteiraRequest request){
-
         return service.criar(usuarioId, request);
     }
 }

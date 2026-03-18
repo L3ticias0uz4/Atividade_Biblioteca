@@ -1,14 +1,40 @@
-public Emprestimo criar(Long usuarioId, EmprestimoRequest request){
+package org.example.atividade_biblioteca.service;
 
-    Usuario usuario = usuarioRepository.findById(usuarioId).orElseThrow();
+import org.example.atividade_biblioteca.dto.EmprestimoRequest;
+import org.example.atividade_biblioteca.entities.Emprestimo;
+import org.example.atividade_biblioteca.entities.Usuario;
+import org.example.atividade_biblioteca.repositories.EmprestimoRepository;
+import org.example.atividade_biblioteca.repositories.UsuarioRepository;
+import org.springframework.stereotype.Service;
 
-    Emprestimo e = new Emprestimo();
-    e.setLivro(request.getLivro());
-    e.setData(LocalDate.now());
-    e.setUsuario(usuario);
+import java.time.LocalDate;
+import java.util.List;
 
-    return emprestimoRepository.save(e);
-}
+@Service
+public class EmprestimoService {
 
-void main() {
+    private final EmprestimoRepository emprestimoRepository;
+    private final UsuarioRepository usuarioRepository;
+
+    public EmprestimoService(EmprestimoRepository emprestimoRepository,
+                             UsuarioRepository usuarioRepository) {
+        this.emprestimoRepository = emprestimoRepository;
+        this.usuarioRepository = usuarioRepository;
+    }
+
+    public Emprestimo criar(Long usuarioId, EmprestimoRequest request){
+
+        Usuario usuario = usuarioRepository.findById(usuarioId).orElseThrow();
+
+        Emprestimo e = new Emprestimo();
+        e.setLivro(request.getLivro());
+        e.setData(LocalDate.now());
+        e.setUsuario(usuario);
+
+        return emprestimoRepository.save(e);
+    }
+
+    public List<Emprestimo> listarPorUsuario(Long usuarioId){
+        return emprestimoRepository.findByUsuarioId(usuarioId);
+    }
 }
